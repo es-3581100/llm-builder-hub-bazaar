@@ -108,6 +108,35 @@ There is currently no claim of:
 
 Anything described below is **design intent or a candidate pattern** until implemented and verified.
 
+## Seed corpus and planned plugin index
+
+A first Bazaar seed corpus has now been inspected and normalized for planning. The imported bundle contains **42 top-level artifacts**, which normalize to **40 conceptual entries** after linking compiled companions and related variants.
+
+The canonical planning record is:
+
+- [PLANNED_PLUGIN_INDEX.md](./PLANNED_PLUGIN_INDEX.md)
+
+This does **not** change the repository's implementation status. The Bazaar remains unstarted as a runtime/SDK/registry; the index records candidate material, reference builds, support artifacts, readiness evidence, authority boundaries, and explicit release/audit caveats so future implementation does not flatten every artifact into a false `ready` state.
+
+### Readiness-driven first implementation queue
+
+The following is an **opinionated implementation order based on current conversion readiness plus fit with the Hub's local-first authority model**. It is not a quality ranking.
+
+| Rank | Candidate | Why implement it early |
+|---:|---|---|
+| 1 | **Derived State HTML5 Systems** | Only three standalone HTML files. Ideal smallest fixture for proving manifest load, semantic HTML admission, static projection, and a zero-privilege capability set before touching larger runtimes. |
+| 2 | **OpenCode CLI Agent Linter** | Single-file, directly relevant to the Hub's OpenCode execution workflow, and naturally read-only. High practical value with a very small authority surface. |
+| 3 | **LLM Tokenizer Lab** | Self-contained local analysis UI with no required privileged execution. Good second read-only plugin for validating repeatable packaging and host chrome. |
+| 4 | **StackGraph Forge** | Already has a standalone HTML workbench plus an optional Go/Templ shell and baseline audit material. It stress-tests richer stateful UI without requiring arbitrary shell authority. |
+| 5 | **Agent Theme Manager** | Web app plus a standalone Go companion. Theme/configuration semantics are low-risk and useful for proving shared component vocabulary and persisted plugin settings. |
+| 6 | **go-AHTML** | Small pure-Go library/CLI with tests, schemas, and an embedded viewer. It is unusually well aligned with the Bazaar goal of semantic, agent-readable HTML contracts. |
+| 7 | **Worksheet Deck** | Go already owns durable storage/server behavior while Kotlin/JS progressively enhances the browser. That is close to the host-authority / plugin-presentation split the Bazaar wants. |
+| 8 | **Donpad Browser Relay** | Explicit localhost staging boundary between browser content and durable authority. A strong first test of real capability requests and a narrow host bridge. |
+| 9 | **Logical State Clock** | Audited Go state/history implementation with a browser projection, legal-transition graph, hash-chain history and restart/tamper tests. Strong evidence/provenance plugin candidate. |
+| 10 | **HTML Matrix Memory** | Go-booted memory system with stable pointers, persistence, graph/matrix/wiki projections and tests. More complex than the earlier entries, but mature enough to close the first wave. |
+
+More ambitious runtimes such as **GRAPHCORE**, **HTMLChain**, **VEKTOR**, **TruthFrame**, **Nano State / CHEOPS**, and the cross-language **Tree Agent Runtime** are intentionally later. Their source is valuable, but they either carry explicit release/integration caveats or need host contracts that should be proven on smaller plugins first.
+
 ## Working design direction
 
 The current direction is:
